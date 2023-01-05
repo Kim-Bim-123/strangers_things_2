@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { apiCall } from "../api";
 
 const method = "DELETE";
@@ -24,7 +24,7 @@ const matchPost = (post, searchTerm) => {
 };
 
 const Posts= ({ posts, token, setPosts, userData }) => {
-    const history = useNavigate();
+    const history = useHistory();
     const [searchTerm, setSearchTerm] = useState("");
 
     const toDisplay = posts.filter(post => matchPost(post, searchTerm));

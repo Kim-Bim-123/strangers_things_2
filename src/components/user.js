@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { callApi } from "../api";
+import { apiCall } from "../api";
 
 
 const User = ({ userData, token }) => {
@@ -16,7 +16,7 @@ const User = ({ userData, token }) => {
         const API_URL = `/posts/${postId}`;
         // event.preventDefault();
         try {
-            await callApi({
+            await apiCall({
                 url: API_URL,
                 method: 'delete',
                 token: token,
@@ -29,7 +29,7 @@ const User = ({ userData, token }) => {
     };
 
     const getProfile = async () => {
-        const data = await callApi({
+        const data = await apiCall({
             url: API_URL,
             token,
         });

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { apiCall } from "../api"
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 const CreatePost = ({ token, setPosts, posts, action }) => {
-    const history = useNavigate();
+    const history = useHistory();
     const { postId } = useParams();
     const [newPosts, setNewPosts] = useState({
         title: "",
@@ -43,7 +43,7 @@ const CreatePost = ({ token, setPosts, posts, action }) => {
             } else {
                 setPosts([...posts, posts]);
             }
-            Navigate.push("/posts");
+            history.push("/posts");
         } catch (error) {
             console.error("Error adding your post:", error);
         }

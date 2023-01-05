@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { apiCall } from '../api';
 
 export const API_ROOT = 'https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users';
@@ -15,7 +15,7 @@ const Account = ({ action , setToken, setUserData }) => {
     const oppositeTitle = isLogin ? "Register" : "Login";
     const oppositeAction = isLogin ? "Register" : "Login";
     const actionURL = isLogin ? API_LOGIN : API_REGISTER;
-    const history = useNavigate();
+    const history = useHistory();
 
     const handleSubmit = async (event) => {
         event.preventDefault();

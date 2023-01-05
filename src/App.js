@@ -9,8 +9,8 @@ import {
     Login,
     SinglePost,
     User,
-} from "../index.js"
-import { apiCall } from "../api/index";
+} from "./index.js"
+import { apiCall } from "./api/index";
 
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
         })
         return posts;
     };
-    fetchPosts();
+
 
     useEffect(() => {
         async function fetchData() {
@@ -55,6 +55,7 @@ const App = () => {
 
         { <Switch>
             <Route exact path="/"></Route>
+            
             <Route exact path="/posts">
                 <Posts
                 posts={posts}
@@ -92,7 +93,7 @@ const App = () => {
                 />
             </Route>
             <Route path="/login">
-                <Account
+                <Login
                     action="login" 
                     setToken={setToken}
                     setUserData={setUserData}
