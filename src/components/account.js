@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { apiCall } from './api';
+import { useNavigate } from 'react-router-dom';
+import { apiCall } from '../api';
 
-const API_ROOT = 'https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users';
-const API_REGISTER = `${API_ROOT}register`;
-const API_LOGIN = `${API_ROOT}login`;
-const API_USER = `${API_ROOT}me`;
+export const API_ROOT = 'https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users';
+export const API_REGISTER = `${API_ROOT}register`;
+export const API_LOGIN = `${API_ROOT}login`;
+export const API_USER = `${API_ROOT}me`;
 
 const Account = ({ action , setToken, setUserData }) => {
     const [username, setUsername] = useState("");
@@ -15,9 +15,9 @@ const Account = ({ action , setToken, setUserData }) => {
     const oppositeTitle = isLogin ? "Register" : "Login";
     const oppositeAction = isLogin ? "Register" : "Login";
     const actionURL = isLogin ? API_LOGIN : API_REGISTER;
-    const history = useHistory();
+    const history = useNavigate();
 
-    const handleSunmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = await apiCall({
             url: `/users/${action}`,

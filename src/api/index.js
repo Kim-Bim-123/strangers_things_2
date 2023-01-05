@@ -1,4 +1,4 @@
-export const Base_URL = 'https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/Posts'
+export const API_URL = 'https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/Posts'
 
 export const apiCall = async ({ url, method, token, body }) => {
     console.log("apiCall: ", {url, method, token, body });
@@ -14,9 +14,9 @@ export const apiCall = async ({ url, method, token, body }) => {
         if (token) {
             options.headers["Authorization"] = `Bearer ${token}`;
         }
-        console.log("Call API Request URL: ", Base_URL + url);
+        console.log("Call API Request URL: ", API_URL + url);
         console.log("Call API Options: ", options);
-        const response = await fetch(Base_URL + url, options);
+        const response = await fetch(API_URL + url, options);
         const data = await response.json();
         console.log("data: ", data);
         if (data.error) throw data.error;
@@ -25,3 +25,4 @@ export const apiCall = async ({ url, method, token, body }) => {
         console.error('ERROR: ', error);
     }
 };
+

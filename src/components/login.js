@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT';
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
+    const history = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -36,7 +36,7 @@ const Login = () => {
     };
     return (
         <div id='login'>
-        <form onSubmit={handleSumbit}>
+        <form onSubmit={handleSubmit}>
             <label>Username</label>
             <input
             type="text"
